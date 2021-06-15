@@ -20,26 +20,26 @@
   z-index: -1;
 }
 .layer-bg {
-	background-image: url('/img/bg.jpg');
+	background-image: url('../img/bg.jpg');
 }
 .layer-1 {
-	background-image: url('/img/mountains.png');
+	background-image: url('../img/mountains.png');
 	background-position: center -500px;
 
 }
 .layer-2 {
-	background-image: url('/img/ilu_02.png');
+	background-image: url('../img/ilu_02.png');
 }
 .layer-3 {
 	/*background-image: url('smoke.png');*/
 	background-position:  20px 100px;
 }
 .layer-4 {
-	background-image: url('/img/ilu_01.png');
+	background-image: url('../img/ilu_01.png');
   background-position: 0 720px;;
 }
 .layer-5 {
-	background-image: url('/img/tree.png');
+	background-image: url('../img/tree.png');
   background-position: right -720px ;
 
 }
