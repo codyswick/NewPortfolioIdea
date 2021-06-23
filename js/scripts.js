@@ -32,3 +32,106 @@ window.addEventListener("scroll", function(event) {
 
 }
 })
+
+
+
+
+$(function() {
+    $("a").on('click', function(event) {
+
+        if (this.hash !== "") {
+            event.preventDefault();
+
+
+            $('html, body').animate({
+                scrollTop: $(this.hash).offset().top + 2
+            }, 700, function() {});
+
+        }
+    });
+
+    $('#downArrow').on('mouseenter', function() {
+        $(this).fadeOut('slow');
+        $(this).fadeIn('slow');
+    }, );
+    var stickyNavTop = $('.nav-bar').offset().top;
+
+    var stickyNav = function() {
+        var scrollTop = $(window).scrollTop();
+        if (scrollTop > stickyNavTop) {
+            $('.nav-bar').addClass('sticky');
+        } else {
+            $('.nav-bar').removeClass('sticky');
+        }
+    };
+
+    stickyNav();
+    $(window).scroll(function() {
+        stickyNav();
+    });
+});
+
+
+
+const filters = document.querySelectorAll(".filter");
+
+filters.forEach((filter) => {
+  filter.addEventListener("click", function () {
+    let active = document.querySelectorAll(".active");
+    active.forEach((item, i) => {
+      item.classList.remove("active");
+    });
+
+    let selectedFilter = filter.getAttribute("data-filter")
+    filter.classList.add("active");
+    let itemsToHide = document.querySelectorAll(
+      `.projects .project:not([data-filter='${selectedFilter}'])`
+    );
+    let itemsToShow = document.querySelectorAll(
+      `.projects [data-filter='${selectedFilter}']`
+    );
+
+    if (selectedFilter == "all") {
+      itemsToHide = [];
+      itemsToShow = document.querySelectorAll(".projects [data-filter]");
+    }
+
+    itemsToHide.forEach((el) => {
+      el.classList.add("hide");
+
+
+    });
+
+    itemsToShow.forEach((el) => {
+      el.classList.remove("hide");
+
+
+    });
+  });
+});
+
+
+
+
+
+// filter by value
+//
+// const filters = document.querySelectorAll(".filter");
+// const elements = document.querySelectorAll(".project");
+//
+// filters.forEach((filter) => {
+//    filter.addEventListener("click", function ()  {
+//      let selectedFilter = filter.getAttribute("data-filter");
+//      let itemsToHide = document.querySelectorAll(`.projects .project:not([data-filter='${selectedFilter}'])`)
+//      if(itemsToHide != 0){
+//        for(let i = 0; i < itemsToHide.length;i++){
+//          itemsToHide[i].classList.add("hide")
+//        }
+//      }else{
+//        for(let i = 0; i < itemsToHide.length;i++){
+//          itemsToHide[i].classList.remove("hide")
+//      }
+// }
+//
+// })
+// });
