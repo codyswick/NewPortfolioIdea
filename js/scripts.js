@@ -55,13 +55,16 @@ $(function() {
         $(this).fadeIn('slow');
     }, );
     var stickyNavTop = $('.nav-bar').offset().top;
+    let scrollUpBtn = $('.scroll-up-btn')
 
     var stickyNav = function() {
         var scrollTop = $(window).scrollTop();
         if (scrollTop > stickyNavTop) {
             $('.nav-bar').addClass('sticky');
+            scrollUpBtn.addClass('show')
         } else {
             $('.nav-bar').removeClass('sticky');
+            scrollUpBtn.removeClass('show')
         }
     };
 
